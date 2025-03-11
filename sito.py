@@ -200,17 +200,24 @@ def menu():
     scelta = 0
     while scelta >= 0 and scelta <= 8:
         scelta = int(input("Fai la tua scelta: "))
-        if scelta == 1:
-            aggiungi_viaggio(viaggi,destinazioni,date)
-            print(viaggi)
-        if scelta == 2:
-            rimuovi_viaggio(viaggi)
-        if scelta == 3:
-            modifica(viaggi,destinazioni,date)
-        if scelta == 4:
-            scheda_viaggi(viaggi)
-        if scelta == 5:
-            visualizza_viaggio(viaggi)
-        if scelta == 6:
-            visualizza_destinazione(viaggi,destinazioni)
+        try:
+            if scelta == 1:
+                aggiungi_viaggio(viaggi,destinazioni,date)
+                print(viaggi)
+            if scelta == 2:
+                rimuovi_viaggio(viaggi)
+            if scelta == 3:
+                modifica(viaggi,destinazioni,date)
+            if scelta == 4:
+                scheda_viaggi(viaggi)
+            if scelta == 5:
+                visualizza_viaggio(viaggi)
+            if scelta == 6:
+                visualizza_destinazione(viaggi,destinazioni)
+        except ValueError:
+            print("ValueError: input non valido")
+        except:
+            print("Qualcosa è andato storto")
+        finally:
+            input("premere un tasto per continuare....")
 menu()
