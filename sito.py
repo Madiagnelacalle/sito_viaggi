@@ -71,23 +71,27 @@ def scheda_viaggi(lista):
         print(f"{lista[count]}")
         count +=1
     return
-def visualizza_destinazione(lista):
-   i = 0
-   while i < len(lista):
-       j = i + 1
-       while j < len(lista):
-           if lista[i]["destinazione"] == lista[j]["destinazione"]:
-               print(f"Nome: {lista[i]['nome']}, Data: {lista[i]['data']}")
-               print(f"Nome: {lista[j]['nome']}, Data: {lista[j]['data']}")
-           j += 1
-       i += 1
-def visualizza_data(lista):
-   i = 0
-   while i < len(lista):
-       j = i + 1
-       while j < len(lista):
-           if lista[i]["data"] == lista[j]["data"]:
-               print(f"Nome: {lista[i]['nome']}, Destinazione: {lista[i]['destinazione']}")
-               print(f"Nome: {lista[j]['nome']}, Destinazione: {lista[j]['destinazione']}")
-           j += 1
-       i += 1
+def visualizza_destinazione(lista, destinazione):
+    Trovato = False
+    for i in range(len(lista)):
+        if lista[i]["destinazione"] == destinazione:
+            for j in range(i + 1, len(lista)):
+                if lista[j]["destinazione"] == destinazione:
+                    print(f"Nome: {lista[i]['nome']}, Data: {lista[i]['data']}")
+                    print(f"Nome: {lista[j]['nome']}, Data: {lista[j]['data']}")
+                    Trovato = True
+    if not Trovato:
+        print("Non ci sono più persone che hanno la stessa destinazione.")
+
+def visualizza_data(lista, data):
+    Trovato = False
+    for i in range(len(lista)):
+        if lista[i]["data"] == data:
+            for j in range(i + 1, len(lista)):
+                if lista[j]["data"] == data:
+                    print(f"Nome: {lista[i]['nome']}, Destinazione: {lista[i]['destinazione']}")
+                    print(f"Nome: {lista[j]['nome']}, Destinazione: {lista[j]['destinazione']}")
+                    Trovato = True
+    if not Trovato:
+        print("Non ci sono più persone che partono la stessa data.")
+
