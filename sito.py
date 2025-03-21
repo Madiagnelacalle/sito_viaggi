@@ -183,27 +183,28 @@ def visualizza_data(lista, data):
             print()
 
 def menu():
-    system("cls")
-    print("╔════════════════════════════════════════╗")
-    print("║               MENU VIAGGI              ║")
-    print("╠════════════════════════════════════════╣")
-    print("║ 1. Aggiungere un viaggio               ║")
-    print("║ 2. Rimuovere un viaggio                ║")
-    print("║ 3. Modificare un viaggio               ║")
-    print("║ 4. Visualizzare tutti i viaggi         ║")
-    print("║ 5. Visualizzare un viaggio tramite ID  ║")
-    print("║ 6. Visualizzare viaggi per destinazione║")
-    print("║ 7. Visualizzare viaggi per data        ║")
-    print("║ 8. Chiusura del programma              ║")
-    print("╚════════════════════════════════════════╝")
-    print()
+
     scelta = 0
     while scelta >= 0 and scelta <= 8:
+        system("cls")
+        print("╔════════════════════════════════════════╗")
+        print("║               MENU VIAGGI              ║")
+        print("╠════════════════════════════════════════╣")
+        print("║ 1. Aggiungere un viaggio               ║")
+        print("║ 2. Rimuovere un viaggio                ║")
+        print("║ 3. Modificare un viaggio               ║")
+        print("║ 4. Visualizzare tutti i viaggi         ║")
+        print("║ 5. Visualizzare un viaggio tramite ID  ║")
+        print("║ 6. Visualizzare viaggi per destinazione║")
+        print("║ 7. Visualizzare viaggi per data        ║")
+        print("║ 8. Chiusura del programma              ║")
+        print("╚════════════════════════════════════════╝")
+        print()
         scelta = int(input("Fai la tua scelta: "))
+        print()
         try:
             if scelta == 1:
                 aggiungi_viaggio(viaggi,destinazioni,date)
-                print(viaggi)
             if scelta == 2:
                 rimuovi_viaggio(viaggi)
             if scelta == 3:
@@ -214,6 +215,11 @@ def menu():
                 visualizza_viaggio(viaggi)
             if scelta == 6:
                 visualizza_destinazione(viaggi,destinazioni)
+            if scelta == 7:
+                visualizza_data(viaggi, date)
+            if scelta == 8:
+                print("Programma in chiusura")
+                break
         except ValueError:
             print("ValueError: input non valido")
         except:
